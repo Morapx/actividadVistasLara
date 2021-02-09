@@ -15,7 +15,7 @@
                     </div>
 
                     <footer class="card-footer">
-                        <a class="action-link action-edit">
+                        <a href="{{ route('notas.edit',  ['id' => $lopp-iteration]) }}" class="action-link action-edit">
                             <i class="icon icon-pen"></i>
                         </a>
                         <a class="action-link action-delete">
