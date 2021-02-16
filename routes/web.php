@@ -18,22 +18,19 @@ Route::get('/', function () {
 });
 
 Route::get('notas', function(){
-$notas =[
-        'primera nota',
-        'segunda nota',
-        'tercera nota',
-        'cuarrta nota',
-        'quinta nota',
+    $notas = [
+        "Primera Nota",
+        "Segunda Nota",
+        "Tercera Nota",
+        "Cuarta Nota",
     ];
-
     return view('notas', ['notas' => $notas]);
 })->name('notas.index');
 
-route::get('agregar', function(){
+Route::get('agregar', function(){
     return view('agregar');
 });
 
-route::get('notas/{id}/editar', function($id){
+Route::get('notas/{id}/editar', function($id){
     return 'Aqui se van a editar las notas' .$id;
 })->name('notas.edit');
-

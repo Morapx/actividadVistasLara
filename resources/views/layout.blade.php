@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Notas</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-    <!-- <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>-->
+    <!--script type="text/javascript" src="{{ asset('js/script.js') }}"></script-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -15,13 +15,13 @@
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li class="main-nav-item active">
-                        <a href= "{{ route('notas.index') }}" class="main-nav-link">
+                        <a href="{{ route('notas.index') }}" class="main-nav-link">
                             <i class="icon icon-th-list"></i>
                             <span>Ver notas</span>
                         </a>
                     </li>
                     <li class="main-nav-item ">
-                        <a href="{{ url('agregar') }} class="main-nav-link">
+                        <a href="{{ url('agregar') }}" class="main-nav-link">
                             <i class="icon icon-pen"></i>
                             <span>Nueva nota</span>
                         </a>
@@ -30,7 +30,7 @@
             </nav>
         </header>
 
-         @yield('content')
+        @yield('content')
 
         <footer class="foot">
             <div class="ad">
