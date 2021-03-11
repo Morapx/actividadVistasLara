@@ -1,8 +1,11 @@
 <?php
 
+
 use App\Models\Notas;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,25 +18,34 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-
 Route::get('/', function () {
-
     return view('welcome');
 });
 
-Route::get('notas', function() {
-    $notas = Notas::all(); //DB::table('notas')->get();
-    
-    return view('notas', ['notas' => $notas]);
-})->name('notas.index');
+Route ::get('notas', function(){
+    $notas = Notas:: all();
 
-Route::get('agregar', function() {
+    return view('notas', ['notas' =>$notas]);
+});
+
+
+Route:: get('agregar', function(){
     return view('agregar');
 });
 
-Route::get('notas/{id}/editar', function ($id){
-    $notas = Notas::find($id); //DB::table('notas')->where('id', $id)->first();
+Route::post('crear', function(Request $request){
+    Notas::create([
+        'titulo' => $request -> input('title'),
+        'contenido' => $request -> input ('content'),
+    ]);
 
-        return view('editar', ['notas' => $notas]);
-        #return 'Aqui se van a editar las notas' .$id;
-})->name('notas.edit');
+    return redirect('/notas');
+
+})->name('notas.store');
+
+Route:: get('notas/{id}/ediar', function($id) {
+    $notas = Notas:: find($id);
+    
+
+    return view('editar', ['notas' => $notas]);
+}) -> name('notas.edit');
